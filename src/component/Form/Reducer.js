@@ -23,10 +23,17 @@ export const reducer = (state, action) => {
         term: !state.term,
       };
     case actionTypes.decrease:
-      return {
-        ...state,
-        number: state.number - 1,
-      };
+      if (state.number > 0) {
+        return {
+          ...state,
+          number: state.number - 1,
+        };
+      } else {
+        return {
+          ...state,
+          number: 0,
+        };
+      }
     case actionTypes.increase:
       return {
         ...state,
